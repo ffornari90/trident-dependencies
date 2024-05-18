@@ -1,7 +1,7 @@
 trident-dependencies
 =========
 
-Ansible role to install NetApp Trident dependencies on Alpine.
+Ansible Role to install NetApp Trident dependencies on Alpine.
 
 Role Variables
 --------------
