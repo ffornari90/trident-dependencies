@@ -1,0 +1,4 @@
+- name: 'Install collection community.kubernetes at version {{ k8s_collection_version }}'
+  community.general.ansible_galaxy_install:
+    type: collection
+    name: "community.kubernetes:{{ k8s_collection_version }}"

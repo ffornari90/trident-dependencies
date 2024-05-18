@@ -1,0 +1,16 @@
+---
+# tasks file for trident-dependencies
+- name: Check if base dependencies are installed
+  shell: apk list -I python3 py3-pip py3-requests py3-kubernetes py3-jmespath
+  register: apk_list
+- name: Include task to install base dependencies
+  include_tasks: install_dependencies.yml
+  when: not (apk_list.stdout_lines | length == 5)
+- name: Check if community.kubernetes collection is installed
+  shell: ansible-galaxy collection list community.kubernetes | grep -q "{{ k8s_collection_version }}"
+  register: ansible_galaxy_list
+  failed_when: false
+  ignore_errors: true
+- name: Include task to install kubernetes.core collection
+  include_tasks: install_k8s_collection.yml
+  when: ansible_galaxy_list.rc != 0
