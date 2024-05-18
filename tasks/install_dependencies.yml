@@ -1,5 +1,5 @@
 - name: Install base dependencies
   become: yes
   community.general.apk:
-    name: python3,py-pip,py-requests,ansible,py-jmespath,py3-kubernetes,tar
+    name: python3,py-pip,py-requests,ansible,py-jmespath,py3-kubernetes,tar,kubectl
     update_cache: true
