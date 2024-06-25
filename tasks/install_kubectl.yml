@@ -1,5 +1,6 @@
 - name: Install base dependencies
   become: yes
   community.general.apk:
-    name: python3,py-pip,py-requests,ansible,py-jmespath,py3-kubernetes,tar
+    name: kubectl
     update_cache: true
+    repository: https://dl-cdn.alpinelinux.org/alpine/edge/community
